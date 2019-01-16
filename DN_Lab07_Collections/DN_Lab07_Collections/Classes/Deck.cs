@@ -71,6 +71,15 @@ namespace DN_Lab07_Collections.Classes
         }
 
         /// <summary>
+        /// Returns current number of cards in the deck.
+        /// </summary>
+        /// <returns>Integer</returns>
+        public int Count()
+        {
+            return currentIndex;
+        }
+
+        /// <summary>
         /// Loads up the deck with cards and sends them.
         /// </summary>
         /// <returns>cards</returns>
