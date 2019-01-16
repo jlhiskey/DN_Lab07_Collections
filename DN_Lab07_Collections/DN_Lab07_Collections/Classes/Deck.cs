@@ -21,6 +21,7 @@ namespace DN_Lab07_Collections.Classes
         /// Add method within Deck Class that will take a card and add it to memory. Also has ability to resize memory in more cards are added than current memory allows.
         /// </summary>
         /// <param name="card"></param>
+        /// <returns>T card</returns>
         public T Add(T card)
         {
             //Compares current index to the size of the cardsInDeck and will resize if cardInDeck if memory is full.
@@ -35,6 +36,7 @@ namespace DN_Lab07_Collections.Classes
             currentIndex = currentIndex + 1;
 
             //Collects the added card from the deck and returns it.
+            
             return cardsInDeck[currentIndex - 1];
         }
 
@@ -42,15 +44,15 @@ namespace DN_Lab07_Collections.Classes
         /// Checks deck for card and removes and resizes deck. Returns string value of card if found or "Card Not In Deck" if not found.
         /// </summary>
         /// <param name="card"></param>
-        /// <returns>String</returns>
-        public string Remove(T card)
+        /// <returns>T card</returns>
+        public T Remove(T card)
         {
-            string response = null;
+            T response = default(T);
             for (int i = 0; i < currentIndex; i++)
             {
                 if (card.Equals(cardsInDeck[i]))
                 {
-                    response = cardsInDeck[i].ToString();
+                    response = cardsInDeck[i];
                     for (int j = 0; j < currentIndex - i - 1; j++)
                     {
                         cardsInDeck[j] = cardsInDeck[j + 1];
@@ -68,7 +70,6 @@ namespace DN_Lab07_Collections.Classes
             }
             else
             {
-                response = "Card Not In Deck";
                 return response;
             }
         }
@@ -97,7 +98,7 @@ namespace DN_Lab07_Collections.Classes
         /// <summary>
         /// Builds a standard 52 card deck of cards.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Full 52 card deck of cards.</returns>
         public Deck<Card> FullDeck()
         {
             Deck<Card> fullDeck = new Deck<Card>();
@@ -165,6 +166,8 @@ namespace DN_Lab07_Collections.Classes
             }
             return fullDeck;
         }
+
+
 
         /// <summary>
         /// Because Vinicio said so...
