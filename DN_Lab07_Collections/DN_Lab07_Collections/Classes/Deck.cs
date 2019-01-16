@@ -31,14 +31,25 @@ namespace DN_Lab07_Collections.Classes
             currentIndex = currentIndex + 1;
         }
 
+        /// <summary>
+        /// Loads up the deck with cards and sends them.
+        /// </summary>
+        /// <returns>cards</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < currentIndex; i++)
+            {
+                yield return cardsInDeck[i];
+            }
         }
 
+        /// <summary>
+        /// Because Vinicio said so...
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
