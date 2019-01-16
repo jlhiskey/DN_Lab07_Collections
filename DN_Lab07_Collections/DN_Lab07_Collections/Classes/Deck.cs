@@ -16,7 +16,7 @@ namespace DN_Lab07_Collections.Classes
         T[] cardsInDeck = new T[10];
         //instantiates current index
         int currentIndex = 0;
-
+        
         /// <summary>
         /// Add method within Deck Class that will take a card and add it to memory. Also has ability to resize memory in more cards are added than current memory allows.
         /// </summary>
@@ -36,7 +36,7 @@ namespace DN_Lab07_Collections.Classes
             currentIndex = currentIndex + 1;
 
             //Collects the added card from the deck and returns it.
-            
+
             return cardsInDeck[currentIndex - 1];
         }
 
@@ -167,7 +167,7 @@ namespace DN_Lab07_Collections.Classes
             return fullDeck;
         }
 
-
+        
 
         /// <summary>
         /// Because Vinicio said so...
