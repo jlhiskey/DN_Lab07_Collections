@@ -8,5 +8,6 @@ namespace DN_Lab07_Collections.Classes
     {
         public string Name { get; set; }
         public bool Dealer { get; set; }
+        public Deck<Card> Hand { get; set; }
     }
 }

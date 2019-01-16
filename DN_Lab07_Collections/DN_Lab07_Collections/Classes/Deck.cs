@@ -36,7 +36,7 @@ namespace DN_Lab07_Collections.Classes
             currentIndex = currentIndex + 1;
 
             //Collects the added card from the deck and returns it.
-
+            
             return cardsInDeck[currentIndex - 1];
         }
 
