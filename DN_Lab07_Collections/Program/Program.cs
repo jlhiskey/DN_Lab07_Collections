@@ -1,4 +1,6 @@
 ﻿using System;
+using DN_Lab07_Collections.Classes;
+
 
 namespace Program
 {
@@ -6,7 +8,7 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+          
         }
     }
 }
