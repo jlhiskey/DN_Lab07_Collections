@@ -27,12 +27,33 @@
     - Remove a card from your deck that exists
     - Remove a card from your deck that does not exist
 ## Example Usage
-- When you run app.
+### PrintCards Method using a deck made with Deck.FullDeck() method.
+
+
+    Deck<Card> fullDeck = new Deck<Card>("Full Deck");
+    fullDeck = fullDeck.FullDeck();
+    PrintCards(fullDeck);
+![solution image](assets/PrintMethod.PNG)    
+
+### Deal Method using a deck made with Deck.FullDeck() method.
+    Deck<Card> fullDeck = new Deck<Card>("Full Deck");
+    fullDeck = fullDeck.FullDeck();
+    Deal(fullDeck);
+![solution image](assets/DealMethod.PNG)    
+
+### Add Method and Remove Method using a deck that is initally empty
+    Deck<Card> testDeck = new Deck<Card>("Test Deck");
+    Card test = new Card(Card.SuitType.Clubs, Card.DenominationType.Two);
+    Card test2 = new Card(Card.SuitType.Clubs, Card.DenominationType.Ace);
+    PrintCards(testDeck);
+    UIAddCard(test, testDeck);
+    UIAddCard(test, testDeck);
+    PrintCards(testDeck);
+    UIRemoveCard(test, testDeck);
+    UIRemoveCard(test2, testDeck);
+    UIRemoveCard(test, testDeck);
+    UIRemoveCard(test, testDeck);
     
+![solution image](assets/AddRemoveMethods.PNG)
 
-    ## Screenshots of Usage
-    ### Something
-    ![solution image](Solution1.PNG)
-
-    ### SomethingElse
-    ![solution image](Solution2.PNG)
+ 
