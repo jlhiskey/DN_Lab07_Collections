@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using DN_Lab07_Collections.Classes;
+
 
 namespace DN_Lab07_Collections.Classes
 {
@@ -14,12 +13,10 @@ namespace DN_Lab07_Collections.Classes
     {
         public string Name { get; set; }
 
-
         public Deck(String name)
         {
             Name = name;
         }
-
 
         //Creates inital memory with enough space to hold 10 cards
         T[] cardsInDeck = new T[10];
@@ -54,41 +51,34 @@ namespace DN_Lab07_Collections.Classes
         /// Checks deck for card and removes and resizes deck. Returns string value of card if found or "Card Not In Deck" if not found.
         /// </summary>
         /// <param name="card"></param>
-        /// <returns>T card</returns>
-        public T Remove(T card)
+        /// <returns>bool</returns>
+        public bool Remove(T card)
         {
-            T response = default(T);
             for (int i = 0; i < currentIndex; i++)
             {
+                
                 if (card.Equals(cardsInDeck[i]))
                 {
-                    response = cardsInDeck[i];
-                    for (int j = 0; j < currentIndex - i - 1; j++)
+                    for (int j = i; j < currentIndex - i - 1; j++)
                     {
                         cardsInDeck[j] = cardsInDeck[j + 1];
                     }
                     currentIndex = currentIndex - 1;
-                    if (currentIndex < cardsInDeck.Length - 11)
+                    if (currentIndex < cardsInDeck.Length - 10)
                     {
                         Array.Resize(ref cardsInDeck, cardsInDeck.Length - 10);
                     }
+                    return true;
                 }
             }
-            if (response != null)
-            {
-                return response;
-            }
-            else
-            {
-                return response;
-            }
+            return false;
         }
 
-        /// <summary>
-        /// Returns current number of cards in the deck.
-        /// </summary>
-        /// <returns>Integer</returns>
-        public int Count()
+            /// <summary>
+            /// Returns current number of cards in the deck.
+            /// </summary>
+            /// <returns>Integer</returns>
+            public int Count()
         {
             return currentIndex;
         }
@@ -175,9 +165,7 @@ namespace DN_Lab07_Collections.Classes
                 fullDeck.Add(allCards[i]);
             }
             return fullDeck;
-        }
-
-        
+        }        
 
         /// <summary>
         /// Because Vinicio said so...

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DN_Lab07_Collections.Classes
 {
+    /// <summary>
+    /// Creates a new card using enums SuitType and DenominationType as inputs.
+    /// </summary>
     public class Card
     {
         public enum SuitType

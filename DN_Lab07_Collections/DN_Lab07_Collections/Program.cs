@@ -13,17 +13,59 @@ namespace Program
 
             fullDeck = fullDeck.FullDeck();
 
+            Console.WriteLine("//PrintCards Method");
+            Console.WriteLine("//Using a Deck Built with Deck.FullDeck() Method");
+            PrintCards(fullDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//Deal Method");
+            Console.WriteLine("//Using a Deck Built with Deck.FullDeck() Method");
             Deal(fullDeck);
-
-            Card c53 = new Card(Card.SuitType.Spades, Card.DenominationType.Ace);
-            UIAddCard(c53, fullDeck);
-
-            
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Deck<Card> testDeck = new Deck<Card>("Test Deck");
+            Card test = new Card(Card.SuitType.Clubs, Card.DenominationType.Two);
+            Card test2 = new Card(Card.SuitType.Clubs, Card.DenominationType.Ace);
+            Console.WriteLine("//PrintCards Method");
+            Console.WriteLine("//Using Test Deck with No Cards");
+            PrintCards(testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//UIAddCard method using Two of Clubs and Test Deck");
+            UIAddCard(test, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//UIAddCard method using Two of Clubs and Test Deck");
+            UIAddCard(test, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//PrintCards Method");
+            Console.WriteLine("//Using Test Deck with Added Cards");
+            PrintCards(testDeck);
+            Console.WriteLine("//UIRemoveCard method using Two of Clubs and Test Deck");
+            UIRemoveCard(test, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//UIRemoveCard method using Ace of Clubs and Test Deck");
+            UIRemoveCard(test2, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//UIRemoveCard method using Two of Clubs and Test Deck");
+            UIRemoveCard(test, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("//UIRemoveCard method using Two of Clubs and Test Deck");
+            UIRemoveCard(test, testDeck);
+            Console.WriteLine();
+            Console.WriteLine();
 
             Console.ReadLine();
 
         }
 
+        
         /// <summary>
         /// Adds a new card to an existing deck of cards.
         /// </summary>
@@ -37,6 +79,24 @@ namespace Program
         }
 
         /// <summary>
+        /// Adds a new card to an existing deck of cards.
+        /// </summary>
+        /// <param name="newCard"></param>
+        /// <param name="existingDeck"></param>
+        public static void UIRemoveCard(Card searchCard, Deck<Card> existingDeck)
+        {
+            if(existingDeck.Remove(searchCard))
+            {
+                Console.WriteLine($"You removed a {searchCard.Denomination} of {searchCard.Suit} from Card Deck: {existingDeck.Name}.");
+                Console.WriteLine($"You have {existingDeck.Count()} cards left.");
+            }
+            else
+            {
+                Console.WriteLine($"Your deck does not have the {searchCard.Denomination} of {searchCard.Suit} in it.");
+            }
+        }
+
+        /// <summary>
         /// Takes a created deck of cards as a param and lists the cards as a console log.
         /// </summary>
         /// <param name="cardDeck"></param>
@@ -45,7 +105,7 @@ namespace Program
             Console.WriteLine($"Card Deck: {cardDeck.Name}");
             Console.WriteLine($"Contains {cardDeck.Count()} cards.");
             Console.WriteLine();
-            foreach (Card card in cardDeck)
+            foreach ( Card card in cardDeck)
             {
                 Console.WriteLine($"{card.Denomination} of {card.Suit}");
             }
