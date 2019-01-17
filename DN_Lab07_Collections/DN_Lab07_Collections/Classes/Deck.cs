@@ -12,6 +12,15 @@ namespace DN_Lab07_Collections.Classes
     /// <typeparam name="T"></typeparam>
     public class Deck<T> : IEnumerable<T>
     {
+        public string Name { get; set; }
+
+
+        public Deck(String name)
+        {
+            Name = name;
+        }
+
+
         //Creates inital memory with enough space to hold 10 cards
         T[] cardsInDeck = new T[10];
         //instantiates current index
@@ -24,6 +33,7 @@ namespace DN_Lab07_Collections.Classes
         /// <returns>T card</returns>
         public T Add(T card)
         {
+            
             //Compares current index to the size of the cardsInDeck and will resize if cardInDeck if memory is full.
             if (currentIndex > cardsInDeck.Length -1)
             {
@@ -101,7 +111,7 @@ namespace DN_Lab07_Collections.Classes
         /// <returns>Full 52 card deck of cards.</returns>
         public Deck<Card> FullDeck()
         {
-            Deck<Card> fullDeck = new Deck<Card>();
+            Deck<Card> fullDeck = new Deck<Card>("Full Deck");
 
             Card c1 = new Card(Card.SuitType.Clubs, Card.DenominationType.Two);
             Card c2 = new Card(Card.SuitType.Clubs, Card.DenominationType.Three);
